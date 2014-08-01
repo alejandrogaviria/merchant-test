@@ -3,11 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
   <parent>
-        <groupId>org.project.demo</groupId>
-        <artifactId>merchant-parent</artifactId>
-        <version>0.8-SNAPSHOT</version>
+  	<groupId>org.project.demo</groupId>
+  	<artifactId>parent</artifactId>
+  	<version>0.8-SNAPSHOT</version>
   </parent>
-
 	<groupId>org.springframework.samples</groupId>
 	<artifactId>spring-mvc-showcase</artifactId>
 	<name>spring-mvc-showcase</name>
