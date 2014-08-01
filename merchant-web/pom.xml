@@ -9,8 +9,8 @@
   </parent>
 
 	<groupId>org.springframework.samples</groupId>
-	<artifactId>spring-mvc-showcase</artifactId>
-	<name>spring-mvc-showcase</name>
+	<artifactId>merchant-web</artifactId>
+	<name>merchant-web</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
