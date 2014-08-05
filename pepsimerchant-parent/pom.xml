@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pepsimerchant</groupId>
+	<artifactId>pepsimerchant-parent</artifactId>
+	<version>${pepsimerchant.version}</version>
+	<packaging>pom</packaging>
+	<name>Pepsi Merchant Parent</name>
+
+	<properties>
+		<pepsimerchant.version>0.0.1-SNAPSHOT</pepsimerchant.version>
+		<java.version>1.7</java.version>
+		<junit.version>3.8.1</junit.version>
+	</properties>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+		<dependencies>
+		
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<modules>
+		<module>pepsimerchant-model</module>
+		<module>pepsimerchant-persist</module>
+		<module>pepsimerchant-services</module>
+		<module>pepsimerchant-admin</module>
+	</modules>
+</project>
