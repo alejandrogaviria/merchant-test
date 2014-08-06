@@ -3,8 +3,40 @@
   <parent>
     <groupId>com.pepsimerchant</groupId>
     <artifactId>pepsimerchant-parent</artifactId>
-    <version>${pepsimerchant.version}</version>
+    <version>0.0.1</version>
   </parent>
+  
+  
   <artifactId>pepsimerchant-model</artifactId>
   <name>Pepsi Merchant Model</name>
+  
+  <build>
+      <plugins>
+  		     <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>aspectj-maven-plugin</artifactId>
+		        <version>1.5</version>
+		        <configuration>
+		          <aspectLibraries>
+		            <aspectLibrary>
+		              <groupId>org.agroup</groupId>
+		              <artifactId>to-weave</artifactId>
+		            </aspectLibrary>
+		            <aspectLibrary>
+		              <groupId>org.anothergroup</groupId>
+		              <artifactId>gen</artifactId>
+		            </aspectLibrary>
+		          </aspectLibraries>
+		        </configuration>
+		        <executions>
+		          <execution>
+		            <goals>
+		              <goal>compile</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		      </plugin>
+		      
+  		    </plugins>
+  </build>
 </project>
