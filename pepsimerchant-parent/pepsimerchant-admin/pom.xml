@@ -5,13 +5,17 @@
   <parent>
     <groupId>com.pepsimerchant</groupId>
     <artifactId>pepsimerchant-parent</artifactId>
-    <version>0.0.1</version>
+    <version>1.2</version>
   </parent>
-
   
     <artifactId>pepsimerchant-admin</artifactId>
   	<packaging>war</packaging>
   	<name>Pepsi Merchant Admin</name>
+  	
+ <properties>
+    <aspectj.version>1.6.11</aspectj.version>
+	<maven.compiler.version>1.6</maven.compiler.version>
+  </properties>
     		
 <!-- 	<groupId>org.springframework.samples</groupId> -->
 <!-- 	<version>1.0.0-BUILD-SNAPSHOT</version> -->
@@ -170,7 +174,8 @@
 		</repository>
 	</repositories>
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${project.artifactId}</finalName> 
+		<pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -209,30 +214,27 @@
 					</execution>
 				</executions>
 			</plugin>
-		     <plugin>
-		        <groupId>org.codehaus.mojo</groupId>
-		        <artifactId>aspectj-maven-plugin</artifactId>
-		        <version>1.5</version>
-		        <configuration>
-		          <aspectLibraries>
-		            <aspectLibrary>
-		              <groupId>org.agroup</groupId>
-		              <artifactId>to-weave</artifactId>
-		            </aspectLibrary>
-		            <aspectLibrary>
-		              <groupId>org.anothergroup</groupId>
-		              <artifactId>gen</artifactId>
-		            </aspectLibrary>
-		          </aspectLibraries>
-		        </configuration>
-		        <executions>
-		          <execution>
-		            <goals>
-		              <goal>compile</goal>
-		            </goals>
-		          </execution>
-		        </executions>
-		      </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>aspectj-maven-plugin</artifactId>
+          <version>1.4</version>
+          <configuration>
+            <complianceLevel>${maven.compiler.target}</complianceLevel>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+			<outxml>true</outxml>
+			<verbose>true</verbose>
+			<showWeaveInfo>true</showWeaveInfo>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile</goal>       <!-- use this goal to weave all your main classes -->
+                <goal>test-compile</goal> <!-- use this goal to weave all your test classes -->
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 			
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
@@ -250,5 +252,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		</pluginManagement>
 	</build>
+
 </project>
