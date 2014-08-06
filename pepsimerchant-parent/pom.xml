@@ -4,13 +4,13 @@
 
 	<groupId>com.pepsimerchant</groupId>
 	<artifactId>pepsimerchant-parent</artifactId>
-	<version>1.2</version>
+	<version>0.0.5-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Pepsi Merchant Parent</name>
 	
   <scm>
     <developerConnection>scm:git:https://github.com/alejandrogaviria/merchant-test.git</developerConnection>
-    <tag>v0.2</tag>
+    <tag>v0.1</tag>
   </scm>
 	
     	 
