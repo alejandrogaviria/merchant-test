@@ -4,13 +4,13 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="pepsimerchant-persist-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-persist/pepsimerchant-persist">
+        <dependent-module archiveName="pepsimerchant-persist-0.0.5-build.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-persist/pepsimerchant-persist">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="pepsimerchant-model-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-model/pepsimerchant-model">
+        <dependent-module archiveName="pepsimerchant-model-0.0.5-build.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-model/pepsimerchant-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="pepsimerchant-services-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-services/pepsimerchant-services">
+        <dependent-module archiveName="pepsimerchant-services-0.0.5-build.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pepsimerchant-services/pepsimerchant-services">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="pepsimerchant-admin"/>

@@ -4,7 +4,7 @@
 
 	<groupId>com.pepsimerchant</groupId>
 	<artifactId>pepsimerchant-parent</artifactId>
-	<version>0.0.5-SNAPSHOT</version>
+	<version>0.0.5-build</version>
 	<packaging>pom</packaging>
 	<name>Pepsi Merchant Parent</name>
 	
@@ -237,8 +237,9 @@
 		          <artifactId>maven-release-plugin</artifactId>
 		          <version>${maven.release.plugin}</version>
 		          <configuration>
-				    <goals>deploy</goals>
+				    <goals>deploy assembly:single</goals>
 				    <autoversionsubmodules>true</autoversionsubmodules>
+				    <releaseprofiles>release</releaseprofiles>
 				  </configuration>
 		        </plugin>
 		      </plugins>
@@ -249,10 +250,25 @@
 <!-- 		        <artifactId>maven-release-plugin</artifactId> -->
 <!-- 		        <version>${maven.release.plugin}</version> -->
 <!-- 		      </plugin> 		 -->
+	        <plugin>
+	            <groupId>external.atlassian.jgitflow</groupId>
+	            <artifactId>jgitflow-maven-plugin</artifactId>
+	            <version>1.0-m3</version>
+	            <configuration>
+                     <flowInitContext>
+			         <masterBranchName>master</masterBranchName>
+			         <developBranchName>development</developBranchName>
+			         <featureBranchPrefix>feature-</featureBranchPrefix>
+			         <releaseBranchPrefix>release-</releaseBranchPrefix>
+			         <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+			         <versionTagPrefix>merchantVersion-</versionTagPrefix>
+			       </flowInitContext>
+	            </configuration>
+	        </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>				
+				<version>3.1</version>				
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>
