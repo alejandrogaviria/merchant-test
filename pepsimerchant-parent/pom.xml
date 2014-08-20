@@ -15,6 +15,7 @@
 	
     	 
 	<properties>
+	    
 	    <proj.version>0.0.5-SNAPSHOT</proj.version>
 	    	    
 	    <aspectj.version>1.6.11</aspectj.version>

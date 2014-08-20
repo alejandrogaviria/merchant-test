@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>This example illustrates Knockout integration of pageable jqxGrid.
+    </title>
+    <link rel="stylesheet" href="../../css/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/json2.js"></script> 
+    <script type="text/javascript" src="../../js/knockout-3.0.0.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxknockout.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../../js/demos.js"></script>
+    <script type="text/javascript">
+        function Person(data) {
+            this.Title = ko.observable(data.Title);
+            this.Company = ko.observable(data.Company);
+            this.Name = ko.observable(data.Name);
+        };
+
+        var viewModel = {
+            items: ko.observableArray([
+                new Person({ Title: "Sales Representative", Company: "Ana Trujillo Emparedados y helados", Name: "Nancy Davolio" }),
+                new Person({ Title: "Sales Manager", Company: "Antonio Moreno Taqueria", Name: "Andrew Fuller" }),
+                new Person({ Title: "Sales Representative", Company: "Around the Horn", Name: "Margaret Peacock" }),
+                new Person({ Title: "Vice President", Company: "Berglunds snabbkop", Name: "Robert King" })
+            ])
+        };
+
+        $(document).ready(function () {
+            ko.applyBindings(viewModel);
+        });
+
+        function addRow() {
+            var count = viewModel.items().length;
+            viewModel.items.push(new Person({ Title: "Title" + count, Company: "Company" + count, Name: "Name" + count }));
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <div id="jqxgrid" data-bind="jqxGrid: { source: items,  columns: [
+                 { text: 'Title', dataField: 'Title', width: 200 },
+                 { text: 'Company', dataField: 'Company', width: 200},
+                 { text: 'Name', dataField: 'Name', width: 200 }
+             ], pageable: true, pagesize: 5, autoheight: true}">
+        </div>
+
+        <table style="margin-top: 20px;">
+            <tbody data-bind="foreach: items">
+                <tr>
+                    <td data-bind="text: Title"></td>
+                    <td data-bind="text: Company"></td>
+                    <td data-bind="text: Name"></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <input data-bind="jqxButton: {}" type="button" id="addRowButton" onclick="addRow()" value="Add row" />
+        </div>
+    </div>
+</body>

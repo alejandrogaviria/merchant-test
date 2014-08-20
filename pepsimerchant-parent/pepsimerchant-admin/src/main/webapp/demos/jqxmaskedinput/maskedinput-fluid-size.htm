@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>jqxMaskedInput Fluid Size Example. The width of the MaskedInput in this demo is in Percentages.</title>
+    <link rel="stylesheet" href="../../css/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/demos.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxmaskedinput.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#numericInput").jqxMaskedInput({ width: '50%', height: '25px', mask: '(###)###-####' });
+        });
+    </script>
+</head>
+<body class='default'>
+    <div style='font-size: 13px; font-family: verdana; margin-top: 10px;'>
+        Phone Number
+    </div>
+    <input style='margin-top: 3px;' id='numericInput' />
+</body>
+</html>

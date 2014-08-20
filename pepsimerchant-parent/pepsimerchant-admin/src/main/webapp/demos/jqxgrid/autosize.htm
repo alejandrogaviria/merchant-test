@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id='Description'>jqxGrid Fluid Size Example. The width and height of the Grid in this demo are in Percentages.</title>
+    <link rel="stylesheet" href="../../css/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxmenu.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.filter.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxpanel.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcalendar.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/globalization/globalize.js"></script>
+    <script type="text/javascript" src="../../js/demos.js"></script>
+    <script type="text/javascript" src="generatedata.js"></script>
+    <style>
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var data = generatedata(500);
+            var source =
+            {
+                localdata: data,
+                datafields:
+                [
+                    { name: 'name', type: 'string' },
+                    { name: 'productname', type: 'string' },
+                    { name: 'available', type: 'bool' },
+                    { name: 'date', type: 'date'},
+                    { name: 'quantity', type: 'number' }
+                ],
+                datatype: "array"
+            };
+
+            var dataAdapter = new $.jqx.dataAdapter(source);
+
+            $("#jqxgrid").jqxGrid(
+            {
+                width: '80%',
+                height: '50%',
+                source: dataAdapter,
+                showfilterrow: true,
+                filterable: true,
+                selectionmode: 'multiplecellsextended',
+                columns: [
+                  { text: 'Name', columntype: 'textbox',  datafield: 'name', width: '20%' },
+                  {
+                      text: 'Product', datafield: 'productname', width: '35%'
+                  },
+                  { text: 'Ship Date', datafield: 'date', filtertype: 'date', width: '30%', cellsalign: 'right', cellsformat: 'd' },
+                  { text: 'Qty.', datafield: 'quantity', width: '15%',  cellsalign: 'right' }
+                ]
+            });
+        });
+    </script>
+</head>
+<body class='default'>
+    <div id="jqxgrid">
+    </div>
+</body>
+</html>

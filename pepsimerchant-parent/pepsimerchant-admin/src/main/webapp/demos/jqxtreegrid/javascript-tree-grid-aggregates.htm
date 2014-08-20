@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title id="Description">jqxTreeGrid provides the possibility to display aggregates. The aggregates are displayed in the last record at the end of each level</title>
+    <meta name="description" content="Aggregates and Sub Aggregates - JavaScript Tree Grid Demo | jQWidgets"> 
+    <link rel="stylesheet" href="../../css/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdata.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxdatatable.js"></script>
+    <script type="text/javascript" src="../../js/jqwidgets/jqxtreegrid.js"></script>
+    <script type="text/javascript" src="../../js/demos.js"></script>
+    <script type="text/javascript" src="../sampledata/generatedata.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {          
+ 
+            // prepare the data
+            var source =
+            {
+                dataType: "tab",
+                dataFields: [
+                    { name: "Id", type: "number" },
+                    { name: "Name", type: "string" },
+                    { name: "ParentID", type: "number" },
+                    { name: "Population", type: "number" }
+                ],
+                hierarchy:
+                {
+                    keyDataField: { name: 'Id' },
+                    parentDataField: { name: 'ParentID' }
+                },
+                id: 'Id',
+                url: '../sampledata/locations.tsv'
+            };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            // create Tree Grid
+            $("#treeGrid").jqxTreeGrid(
+            {
+                width: 850,
+                height: 400,
+                pageable: true,
+                pageSize: 25,
+                source: dataAdapter,
+                showAggregates: true,
+                showSubAggregates: true,
+                aggregatesHeight: 70,
+                sortable: true, 
+                ready: function()
+                {
+                    $("#treeGrid").jqxTreeGrid('expandRow', '34');
+                },
+                columns:
+                [
+                  { text: 'Location Name', dataField: "Name", align: 'center', width: '50%' },
+                  { text: 'Population', dataField: "Population", align: 'center', width: '50%', aggregates: ['min', 'max', 'count'] }
+                ]
+            });
+        });
+    </script>
+</head>
+<body class='default'>
+    <div id="treeGrid">
+    </div>
+</body>
+</html>
